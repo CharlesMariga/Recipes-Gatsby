@@ -1,16 +1,17 @@
 import React from "react";
-import setupRecipes from "../utils/setupTags";
-import { graphql, Link } from "gatsby";
+import setupTags from "../utils/setupTags";
+import { Link } from "gatsby";
+import slugify from "slugify";
 
 export default function TagsList({ recipes = [] }) {
-  const newTags = setupRecipes(recipes);
+  const newTags = setupTags(recipes);
 
   return (
     <div className="tag-container">
       <h4>Recipes</h4>
       <div className="tags-list">
         {newTags.map((tag, index) => (
-          <Link to={`/${tag[0]}`} key={index}>
+          <Link to={`/${slugify(tag[0], { lower: true })}`} key={index}>
             {tag[0]} ({tag[1]})
           </Link>
         ))}

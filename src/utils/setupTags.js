@@ -1,4 +1,4 @@
-const setupRecipes = recipes => {
+const setupTags = recipes => {
   const allTags = {};
 
   recipes.forEach(recipe =>
@@ -17,4 +17,4 @@ const setupRecipes = recipes => {
     return firstTag.localeCompare(secondTag);
   });
 };
-export default setupRecipes;
+export default setupTags;
