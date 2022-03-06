@@ -15,7 +15,7 @@ export default function RecipeTemplate({ data }) {
     image,
   } = data.contentfulRecipe;
 
-  const { ingredeints, instructions, tags, tools } = content;
+  const { ingredients, instructions, tags, tools } = content;
   const pathToImage = getImage(image);
 
   return (
@@ -34,9 +34,14 @@ export default function RecipeTemplate({ data }) {
                 <p>{prepTime} min.</p>
               </article>
               <article>
+                <BsClockHistory />
+                <h5>cook time</h5>
+                <p>{cookTime} min.</p>
+              </article>
+              <article>
                 <BsPeople />
                 <h5>servings</h5>
-                <p>{servings}.</p>
+                <p>{servings}</p>
               </article>
             </div>
             <p className="recipe-tags">
@@ -50,7 +55,38 @@ export default function RecipeTemplate({ data }) {
           </article>
         </section>
         {/* rest of the content */}
-        <section className="recipe-content"></section>
+        <section className="recipe-content">
+          <aticle>
+            <h4>Instructions</h4>
+            {instructions.map((item, index) => (
+              <div key={index} className="single-instruction">
+                <header>
+                  <p>Step {index + 1}</p>
+                  <div></div>
+                </header>
+                <p>{item}</p>
+              </div>
+            ))}
+          </aticle>
+          <article className="second-column">
+            <div>
+              <h4>ingredeints</h4>
+              {ingredients.map((item, index) => (
+                <p key={index} className="single-ingredient">
+                  {item}
+                </p>
+              ))}
+            </div>
+            <div>
+              <h4>tools</h4>
+              {tools.map((item, index) => (
+                <p key={index} className="single-tool">
+                  {item}
+                </p>
+              ))}
+            </div>
+          </article>
+        </section>
       </main>
     </Layout>
   );
