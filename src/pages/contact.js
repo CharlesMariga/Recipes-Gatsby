@@ -27,7 +27,11 @@ const contact = ({
             </p>
           </article>
           <article>
-            <form className="form contac-form">
+            <form
+              action="https://formspree.io/f/xayvjlwg"
+              className="form contac-form"
+              method="POST"
+            >
               <div className="form-row">
                 <label htmlFor="name">Your name</label>
                 <input type="text" name="name" id="name" />
@@ -56,13 +60,13 @@ const contact = ({
 };
 
 export const query = graphql`
-  {
-    allContentfulRecipe(filter: { featured: { eq: true } }) {
+  query MyQuery {
+    allContentfulRecipe {
       nodes {
         cookTime
         id
         image {
-          gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+          gatsbyImageData(layout: CONSTRAINED, placeholder: TRACED_SVG)
         }
         title
         prepTime

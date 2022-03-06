@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs";
 import Layout from "../components/Layout";
+import slugify from "slugify";
 
 export default function RecipeTemplate({ data }) {
   const {
@@ -23,7 +24,7 @@ export default function RecipeTemplate({ data }) {
       <main className="page">
         <div className="recipe-page">{/* hero */}</div>
         <section className="recipe-hero">
-          <GatsbyImage image={pathToImage} alt={title} class="about-img" />
+          <GatsbyImage image={pathToImage} alt={title} className="about-img" />
           <article className="recipe-info">
             <h2>{title}</h2>
             <p>{description}</p>
@@ -47,7 +48,7 @@ export default function RecipeTemplate({ data }) {
             <p className="recipe-tags">
               Tags :{" "}
               {tags.map((tag, index) => (
-                <Link to={`/${tag}`} key={index}>
+                <Link to={`/tags/${slugify(tag, { lower: true })}`} key={index}>
                   {tag}
                 </Link>
               ))}
@@ -56,7 +57,7 @@ export default function RecipeTemplate({ data }) {
         </section>
         {/* rest of the content */}
         <section className="recipe-content">
-          <aticle>
+          <article>
             <h4>Instructions</h4>
             {instructions.map((item, index) => (
               <div key={index} className="single-instruction">
@@ -67,7 +68,7 @@ export default function RecipeTemplate({ data }) {
                 <p>{item}</p>
               </div>
             ))}
-          </aticle>
+          </article>
           <article className="second-column">
             <div>
               <h4>ingredeints</h4>

@@ -11,7 +11,7 @@ export default function TagsList({ recipes = [] }) {
       <h4>Recipes</h4>
       <div className="tags-list">
         {newTags.map((tag, index) => (
-          <Link to={`/${slugify(tag[0], { lower: true })}`} key={index}>
+          <Link to={`/tags/${slugify(tag[0], { lower: true })}`} key={index}>
             {tag[0]} ({tag[1]})
           </Link>
         ))}
