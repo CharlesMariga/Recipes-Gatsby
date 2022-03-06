@@ -14,6 +14,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
@@ -55,12 +56,5 @@ module.exports = {
   siteMetadata: {
     title: "Simply Recipes",
     description: "Nice and clean recipes site",
-    author: "@johnndoe",
-    person: { name: "john", age: 32 },
-    simpleData: ["item 1", "item 2"],
-    complexData: [
-      { name: "john", age: 32 },
-      { name: "susan", age: 21 },
-    ],
   },
 };
